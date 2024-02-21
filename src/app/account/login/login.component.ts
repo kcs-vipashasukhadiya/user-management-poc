@@ -8,7 +8,7 @@ import { MaterialModule } from '../../material.module';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { User } from '../../core/data/user';
 import { USER_TYPE } from '../../core/constant/enum';
-import { Message } from '../../core/constant/constant';
+import { Label, Message, Validation } from '../../core/constant/constant';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted: boolean = false;
   hide = true;
+  readonly LABEL: typeof Label = Label;
+  readonly VALIDATION: typeof Validation = Validation;
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({

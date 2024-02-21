@@ -3,112 +3,112 @@
   <form [formGroup]="userForm">
     <div class="row">
       <mat-form-field class="col-md-4">
-        <mat-label>First Name</mat-label>
-        <input matInput titleCase placeholder="First name" formControlName="firstName">
+        <mat-label>{{LABEL.FIRST_NAME}}</mat-label>
+        <input matInput titleCase formControlName="firstName">
         @if(isSubmitted && f['firstName'].errors){
-          <mat-error *ngIf="f['firstName'].errors['required']">Please enter first name.</mat-error>
-          <mat-error *ngIf="f['firstName'].errors['minlength']">First name must be at least 2 characters.</mat-error>
-          <mat-error *ngIf="f['firstName'].errors['maxlength']">First name must not exceed 20 characters.</mat-error>
-          <mat-error *ngIf="f['firstName'].errors['pattern']">First name should not allowed numbers.</mat-error>
+          <mat-error *ngIf="f['firstName'].errors['required']">{{LABEL.FIRST_NAME}} {{VALIDATION.REQUIRED}}</mat-error>
+          <mat-error *ngIf="f['firstName'].errors['minlength']">{{LABEL.FIRST_NAME}} {{VALIDATION.MIN_LENGTH_2}}</mat-error>
+          <mat-error *ngIf="f['firstName'].errors['maxlength']">{{LABEL.FIRST_NAME}} {{VALIDATION.MAX_LENGTH_20}}</mat-error>
+          <mat-error *ngIf="f['firstName'].errors['pattern']">{{LABEL.FIRST_NAME}} {{VALIDATION.NOT_ALLOWED_NUMBERS}}</mat-error>
         }
       </mat-form-field>
       <mat-form-field class="col-md-4">
-        <mat-label>Last Name</mat-label>
-        <input matInput titleCase placeholder="Last name" formControlName="lastName">
+        <mat-label>{{LABEL.LAST_NAME}}</mat-label>
+        <input matInput titleCase formControlName="lastName">
         @if(isSubmitted && f['lastName'].errors){
-          <mat-error *ngIf="f['lastName'].errors['required']">Please enter last name.</mat-error>
-          <mat-error *ngIf="f['lastName'].errors['minlength']">Last name must be at least 2 characters.</mat-error>
-          <mat-error *ngIf="f['lastName'].errors['maxlength']">Last name must not exceed 20 characters.</mat-error>
-          <mat-error *ngIf="f['lastName'].errors['pattern']">Last name should not allowed numbers.</mat-error>
+          <mat-error *ngIf="f['lastName'].errors['required']">{{LABEL.LAST_NAME}} {{VALIDATION.REQUIRED}}</mat-error>
+          <mat-error *ngIf="f['lastName'].errors['minlength']">{{LABEL.LAST_NAME}} {{VALIDATION.MIN_LENGTH_2}}</mat-error>
+          <mat-error *ngIf="f['lastName'].errors['maxlength']">{{LABEL.LAST_NAME}} {{VALIDATION.MAX_LENGTH_20}}</mat-error>
+          <mat-error *ngIf="f['lastName'].errors['pattern']">{{LABEL.LAST_NAME}} {{VALIDATION.NOT_ALLOWED_NUMBERS}}</mat-error>
         }
       </mat-form-field>
       <mat-form-field class="col-md-4">
-        <mat-label>Gender</mat-label>
+        <mat-label>{{LABEL.GENDER}}</mat-label>
         <mat-select formControlName="gender">
           @for (gen of gender; track gen) {
             <mat-option [value]="gen">{{gen}}</mat-option>
           }
         </mat-select>
         @if(isSubmitted && f['gender'].errors){
-          <mat-error *ngIf="f['gender'].errors['required']">Please select gender.</mat-error>
+          <mat-error *ngIf="f['gender'].errors['required']">{{LABEL.GENDER}} {{VALIDATION.REQUIRED}}</mat-error>
         }
       </mat-form-field>
     </div>
     <div class="row">
       <mat-form-field class="col-md-4">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" formControlName="userName" [attr.disabled]="user ? true : null">
+        <mat-label>{{LABEL.USER_NAME}}</mat-label>
+        <input matInput formControlName="userName" [attr.disabled]="user ? true : null">
         @if(isSubmitted && f['userName'].errors){
-          <mat-error *ngIf="f['userName'].errors['required']">Please enter username.</mat-error>
-          <mat-error *ngIf="f['userName'].errors['minlength']">Username must be at least 8 characters.</mat-error>
-          <mat-error *ngIf="f['userName'].errors['maxlength']">Username must not exceed 20 characters.</mat-error>
-          <mat-error *ngIf="f['userName'].errors['cannotContainSpace']">Username should not allowed space.</mat-error>
-          <mat-error *ngIf="f['userName'].errors['userNameExists']">Username already exists</mat-error>
+          <mat-error *ngIf="f['userName'].errors['required']">{{LABEL.USER_NAME}} {{VALIDATION.REQUIRED}}</mat-error>
+          <mat-error *ngIf="f['userName'].errors['minlength']">{{LABEL.USER_NAME}} {{VALIDATION.MIN_LENGTH_8}}</mat-error>
+          <mat-error *ngIf="f['userName'].errors['maxlength']">{{LABEL.USER_NAME}} {{VALIDATION.MAX_LENGTH_20}}</mat-error>
+          <mat-error *ngIf="f['userName'].errors['cannotContainSpace']">{{LABEL.USER_NAME}} {{VALIDATION.NOT_ALLOWED_SPACE}}</mat-error>
+          <mat-error *ngIf="f['userName'].errors['userNameExists']">{{LABEL.USER_NAME}} {{VALIDATION.ALREADY_EXISTS}}</mat-error>
         }
       </mat-form-field>
       @if(!user){
         <mat-form-field class="col-md-4">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="Password" type="password" formControlName="password">
+          <mat-label>{{LABEL.PASSWORD}}</mat-label>
+          <input matInput type="password" formControlName="password">
           @if(isSubmitted && f['password'].errors){
-            <mat-error *ngIf="f['password'].errors['required']">Please enter password.</mat-error>
-            <mat-error *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters.</mat-error>
-            <mat-error *ngIf="f['password'].errors['maxlength']">Password must not exceed 20 characters.</mat-error>
-            <mat-error *ngIf="f['password'].errors['weekPassword']">Password must have at least one number, one lowercase, one uppercase and one special character.</mat-error>
+            <mat-error *ngIf="f['password'].errors['required']">{{LABEL.PASSWORD}} {{VALIDATION.REQUIRED}}</mat-error>
+            <mat-error *ngIf="f['password'].errors['minlength']">{{LABEL.PASSWORD}} {{VALIDATION.MIN_LENGTH_6}}</mat-error>
+            <mat-error *ngIf="f['password'].errors['maxlength']">{{LABEL.PASSWORD}} {{VALIDATION.MAX_LENGTH_20}}</mat-error>
+            <mat-error *ngIf="f['password'].errors['weekPassword']">{{LABEL.PASSWORD}} {{VALIDATION.VALID_PASSWORD}}</mat-error>
           }
         </mat-form-field>
         <mat-form-field class="col-md-4">
-          <mat-label>Confirm Password</mat-label>
-          <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword">
+          <mat-label>{{LABEL.CONFIRM_PASSWORD}}</mat-label>
+          <input matInput type="password" formControlName="confirmPassword">
           @if(isSubmitted && f['confirmPassword'].errors){
-            <mat-error *ngIf="f['confirmPassword'].errors['required']">Please enter confirm password.</mat-error>
-            <mat-error *ngIf="f['confirmPassword'].errors['matchPassword']">Confirm password didn't match with password.</mat-error>
+            <mat-error *ngIf="f['confirmPassword'].errors['required']">{{LABEL.CONFIRM_PASSWORD}} {{VALIDATION.REQUIRED}}</mat-error>
+            <mat-error *ngIf="f['confirmPassword'].errors['matchPassword']">{{LABEL.CONFIRM_PASSWORD}} {{VALIDATION.PASSWORD_MISMATCH}}</mat-error>
           }
         </mat-form-field>
       }
     </div>
     <div class="row">
       <div class="col-md-4 usertype-matfield">
-        <small>User Notification Type</small><br/>
+        <small>{{LABEL.USER_NOTIFICATION_TYPE}}</small><br/>
         <mat-radio-group formControlName="userNotificationType">
           @for (nt of notificationType; track nt) {
             <mat-radio-button [value]="nt">{{nt}}</mat-radio-button>
           }
         </mat-radio-group>
         @if(isSubmitted && f['userNotificationType'].errors){
-          <mat-error *ngIf="f['userNotificationType'].errors['required']">Please select user notification type.</mat-error>
+          <mat-error *ngIf="f['userNotificationType'].errors['required']">{{LABEL.USER_NOTIFICATION_TYPE}} {{VALIDATION.REQUIRED}}</mat-error>
         }
       </div>
       <mat-form-field class="col-md-4">
-        <mat-label>Email Id</mat-label>
-        <input matInput placeholder="Email Id" formControlName="emailId">
-        @if(isSubmitted && (f['userNotificationType'].value == 'Email' || f['emailId'].value) && f['emailId'].errors){
-          <mat-error *ngIf="f['emailId'].errors['required']">Please enter email id.</mat-error>
-          <mat-error *ngIf="f['emailId'].errors['email']">Invalid emailId.</mat-error>
-          <mat-error *ngIf="f['emailId'].errors['emailIdExists']">EmailId already exists.</mat-error>
+        <mat-label>{{LABEL.EMAIL_ID}}</mat-label>
+        <input matInput formControlName="emailId">
+        @if(isSubmitted && (f['userNotificationType'].value == USER_NOTIFICATION_TYPE.Email || f['emailId'].value) && f['emailId'].errors){
+          <mat-error *ngIf="f['emailId'].errors['required']">{{LABEL.EMAIL_ID}} {{VALIDATION.REQUIRED}}</mat-error>
+          <mat-error *ngIf="f['emailId'].errors['email']">{{LABEL.EMAIL_ID}} {{VALIDATION.INVALID}}</mat-error>
+          <mat-error *ngIf="f['emailId'].errors['emailIdExists']">{{LABEL.EMAIL_ID}} {{VALIDATION.ALREADY_EXISTS}}</mat-error>
         }
       </mat-form-field>
       <mat-form-field class="col-md-4">
-        <mat-label>Mobile No.</mat-label>
-        <input matInput placeholder="Mobile No." formControlName="mobileNo">
-        @if(isSubmitted && (f['userNotificationType'].value == 'Mobile' || f['mobileNo'].value) && f['mobileNo'].errors){
-          <mat-error *ngIf="f['mobileNo'].errors['required']">Please enter mobile no.</mat-error>
-          <mat-error *ngIf="f['mobileNo'].errors['pattern']">MobileNo allowed only numbers.</mat-error>
-          <mat-error *ngIf="f['mobileNo'].errors['minlength'] || f['mobileNo'].errors['maxlength']">MobileNo should have 10 digits only.</mat-error>
+        <mat-label>{{LABEL.MOBILE_NO}}</mat-label>
+        <input matInput formControlName="mobileNo">
+        @if(isSubmitted && (f['userNotificationType'].value == USER_NOTIFICATION_TYPE.Mobile || f['mobileNo'].value) && f['mobileNo'].errors){
+          <mat-error *ngIf="f['mobileNo'].errors['required']">{{LABEL.MOBILE_NO}} {{VALIDATION.REQUIRED}}</mat-error>
+          <mat-error *ngIf="f['mobileNo'].errors['pattern']">{{LABEL.MOBILE_NO}} {{VALIDATION.ALLOWED_ONLY_NUMBERS}}</mat-error>
+          <mat-error *ngIf="f['mobileNo'].errors['minlength'] || f['mobileNo'].errors['maxlength']">{{LABEL.MOBILE_NO}} {{VALIDATION.FIX_LENGTH_10}}</mat-error>
         }
       </mat-form-field>
     </div>
     <div class="row">
       <mat-form-field class="col-md-4">
-        <mat-label>Address Line 1</mat-label>
-        <input matInput placeholder="Address Line 1" formControlName="address1">
+        <mat-label>{{LABEL.ADDRESS_LINE1}}</mat-label>
+        <input matInput formControlName="address1">
       </mat-form-field>
       <mat-form-field class="col-md-4">
-        <mat-label>Address Line 2</mat-label>
-        <input matInput placeholder="Address Line 2" formControlName="address2">
+        <mat-label>{{LABEL.ADDRESS_LINE2}}</mat-label>
+        <input matInput formControlName="address2">
       </mat-form-field>
       <mat-form-field class="col-md-4">
-        <mat-label>Country</mat-label>
+        <mat-label>{{LABEL.COUNTRY}}</mat-label>
         <mat-select formControlName="country" (selectionChange)="onCountryChanged($event)">
           @for (country of countries; track country) {
             <mat-option [value]="country.isoCode">{{country.name}}</mat-option>
@@ -118,7 +118,7 @@
     </div>
     <div class="row">
       <mat-form-field class="col-md-4">
-        <mat-label>State</mat-label>
+        <mat-label>{{LABEL.STATE}}</mat-label>
         <mat-select formControlName="state" (selectionChange)="onStateChanged($event)">
           @for (state of states; track state) {
             <mat-option [value]="state.isoCode">{{state.name}}</mat-option>
@@ -126,7 +126,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field class="col-md-4">
-        <mat-label>City</mat-label>
+        <mat-label>{{LABEL.CITY}}</mat-label>
         <mat-select formControlName="city">
           @for (city of cities; track city) {
             <mat-option [value]="city.name">{{city.name}}</mat-option>
@@ -134,18 +134,18 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field class="col-md-4">
-        <mat-label>ZipCode</mat-label>
+        <mat-label>{{LABEL.ZIP_CODE}}</mat-label>
         <input matInput placeholder="ZipCode" formControlName="zipcode">
         @if(isSubmitted && f['zipcode'].errors){
-          <mat-error *ngIf="f['zipcode'].errors['pattern']">ZipCode allowed only numbers.</mat-error>
-          <mat-error *ngIf="f['zipcode'].errors['minlength'] || f['zipcode'].errors['maxlength']">ZipCode should have 6 digits only.</mat-error>
+          <mat-error *ngIf="f['zipcode'].errors['pattern']">{{LABEL.ZIP_CODE}} {{VALIDATION.ALLOWED_ONLY_NUMBERS}}</mat-error>
+          <mat-error *ngIf="f['zipcode'].errors['minlength'] || f['zipcode'].errors['maxlength']">{{LABEL.ZIP_CODE}} {{VALIDATION.FIX_LENGTH_6}}</mat-error>
         }
       </mat-form-field>
     </div>
     <div class="row">
       @if(!user){
         <mat-form-field class="col-md-4">
-          <mat-label>User Status</mat-label>
+          <mat-label>{{LABEL.USER_STATUS}}</mat-label>
           <mat-select formControlName="userStatus">
             @for (status of userStatusArr; track status) {
               <mat-option [value]="status">{{status}}</mat-option>

@@ -3,25 +3,25 @@
     <mat-toolbar color="primary">Login</mat-toolbar>
     <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="loginForm" (ngSubmit)="onLogin()" class="p-4">
       <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" formControlName="userName" autocomplete="off">
+        <mat-label>{{LABEL.USER_NAME}}</mat-label>
+        <input matInput formControlName="userName" autocomplete="off">
         @if(isSubmitted && f['userName'].errors){
-          <mat-error *ngIf="f['userName'].errors['required']">Please enter username.</mat-error>
+          <mat-error *ngIf="f['userName'].errors['required']">{{LABEL.USER_NAME}} {{VALIDATION.REQUIRED}}</mat-error>
         }
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password" autocomplete="off">
+        <mat-label>{{LABEL.PASSWORD}}</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" autocomplete="off">
         <button type="button" mat-icon-button matSuffix (click)="hide=!hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         @if(isSubmitted && f['password'].errors){
-          <mat-error *ngIf="f['password'].errors['required']">Please enter password.</mat-error>
+          <mat-error *ngIf="f['password'].errors['required']">{{LABEL.PASSWORD}} {{VALIDATION.REQUIRED}}</mat-error>
         }
       </mat-form-field>
       <re-captcha id="recaptcha" name="recaptcha" formControlName="recaptcha"></re-captcha>
       @if(isSubmitted && f['recaptcha'].errors){
-        <mat-error *ngIf="f['recaptcha'].errors['required']">Captcha verification is required.</mat-error>
+        <mat-error *ngIf="f['recaptcha'].errors['required']">{{LABEL.CAPTCHA}} {{VALIDATION.REQUIRED}}</mat-error>
       }
       <button mat-raised-button type="submit" color="primary" class="mt-5">Login</button>
     </form>

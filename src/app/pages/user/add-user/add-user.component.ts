@@ -14,7 +14,7 @@ import { City, Country, ICity, ICountry, IState, State } from 'country-state-cit
 import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MaterialModule } from '../../../material.module';
-import { Message } from '../../../core/constant/constant';
+import { Label, Message, Validation } from '../../../core/constant/constant';
 
 @Component({
   selector: 'app-add-user',
@@ -44,6 +44,9 @@ export class AddUserComponent {
   selectedCity: string;
   user: User = null;
   inputData: any;
+  readonly USER_NOTIFICATION_TYPE: typeof USER_NOTIFICATION = USER_NOTIFICATION;
+  readonly LABEL: typeof Label = Label;
+  readonly VALIDATION: typeof Validation = Validation;
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any) {
     this.gender = Object.keys(USER_GENDER).filter((f) => isNaN(Number(f)));
