@@ -1,5 +1,5 @@
 import { Component, Inject, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlDirective, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { USER_GENDER, USER_NOTIFICATION, USER_STATUS, USER_TYPE } from '../../../core/constant/enum';
 import { PasswordMatchService } from '../../../core/validators/password-match.service';
 import { CustomValidator } from '../../../core/validators/custom-validator.service';
@@ -43,7 +43,6 @@ export class AddUserComponent {
   selectedCity: string;
   user: User = null;
   inputData: any;
-  isDisabled: boolean = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any) {
     this.gender = Object.keys(USER_GENDER).filter((f) => isNaN(Number(f)));
@@ -58,7 +57,6 @@ export class AddUserComponent {
         .subscribe({
           next: (res: any) => {
             this.user = res;
-            this.isDisabled = true;
             const countryCode = Country.getAllCountries()?.find(a => a.name === this.user.country)?.isoCode;
             this.states = State.getStatesOfCountry(countryCode);
             const stateCode = this.states?.find(a => a.name === this.user.state)?.isoCode;
