@@ -14,6 +14,7 @@ import { City, Country, ICity, ICountry, IState, State } from 'country-state-cit
 import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MaterialModule } from '../../../material.module';
+import { Message } from '../../../core/constant/constant';
 
 @Component({
   selector: 'app-add-user',
@@ -177,8 +178,8 @@ export class AddUserComponent {
       this.userService.postUser(user)
         .pipe(takeUntil(this.destroy$))
         .subscribe({
-          next: (data) => { this.toastr.success(data.userName + ' User submitted successfully!'); },
-          error: (err) => { this.toastr.error('User submission failed! Error: ' + err); },
+          next: (data) => { this.toastr.success(data.userName + Message.SUBMIT_MSG); },
+          error: (err) => { this.toastr.error(Message.SUBMIT_ERROR_MSG + ' Error: ' + err); },
           complete: () => {
             this.closePopup();
           }

@@ -1,14 +1,14 @@
-import { Component, OnInit, QueryList, ViewChild, ViewChildren, inject } from '@angular/core';
-import { FormBuilder, FormGroup, NgControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/service/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { onDestroy } from '../../core/service/on-destroy.service';
 import { MaterialModule } from '../../material.module';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
-import { FocusInvalidInputDirective } from '../../core/directive/focus-invalid-input.directive';
 import { User } from '../../core/data/user';
 import { USER_TYPE } from '../../core/constant/enum';
+import { Message } from '../../core/constant/constant';
 
 @Component({
   selector: 'app-login',
@@ -53,11 +53,11 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/home'])
           }
           else {
-            this.toastr.warning('Only Admin can login', 'Warning');
+            this.toastr.warning(Message.ONLY_ADMIN_CAN_LOGIN, 'Warning');
           }
         }
         else {
-          this.toastr.error('Invalid credentials', 'Error');
+          this.toastr.error(Message.INVALID_CREDENTIALS, 'Error');
           this.isSubmitted = false;
           this.loginForm.reset();
           grecaptcha.reset();

@@ -12,6 +12,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { MaterialModule } from '../../material.module';
 import { ToastrService } from 'ngx-toastr';
 import { USER_STATUS, USER_TYPE } from '../../core/constant/enum';
+import { Label, Message } from '../../core/constant/constant';
 
 @Component({
   selector: 'app-user',
@@ -57,7 +58,7 @@ export class UserComponent {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
       data: {
-        title: this.userService.selectedUserId ? 'Edit User' : 'Add User',
+        title: this.userService.selectedUserId ? Label.EDIT_USER_TITLE : Label.ADD_USER_TITLE,
       }
     });
   }
@@ -104,8 +105,8 @@ export class ConfirmDialog {
           this.userService.patchUser({ userStatus: userStatus })
             .pipe(takeUntil(this.destroy$))
             .subscribe({
-              next: (data) => { this.toastr.success('User status changed successfully!'); },
-              error: (err) => { this.toastr.error('Failed to change user status! Error: ' + err); },
+              next: (data) => { this.toastr.success(Message.STATUS_CHANGED_MSG); },
+              error: (err) => { this.toastr.error(Message.STATUS_CHANGED_ERROR_MSG + ' Error: ' + err); },
               complete: () => {
                 this.dialogRef.close();
               }
