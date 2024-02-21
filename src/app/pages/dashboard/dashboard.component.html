@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <button mat-icon-button (click)="opened=!opened">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>User Management</span>
+  <span class="menu-spacer"></span>
+
+  <button mat-flat-button [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="onLogout()" color="accent"><mat-icon>logout</mat-icon> Logout</button>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+      <mat-list-item>
+        <button mat-button [routerLink]="['/home']" routerLinkActive="router-link-active" ><mat-icon>home</mat-icon> Home</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button [routerLink]="['/user']" routerLinkActive="router-link-active" ><mat-icon>perm_identity</mat-icon> User</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

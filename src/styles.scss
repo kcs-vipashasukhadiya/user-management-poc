@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "mdb-angular-ui-kit/assets/scss/mdb.scss";
+/*ngx-toaster*/
+@import "ngx-toastr/toastr";
+
+html, body, app-root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+th {
+  background-color: #3b71ca !important;
+}
+
+mat-sidenav-container {
+  height: calc(205vh - 115vh);
+}
+
+mat-sidenav {
+  width: 200px;
+  background-color: #eee;
+}
+
+.adduser-container mat-form-field + mat-form-field {
+  padding-left: 8px;
+}
+
+.adduser-container .usertype-matfield{
+  background-color: #4a4a4a;
+  height: fit-content;
+  width: 30.5%;
+  margin: 0 10px 0 10px;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0 !important;
+  margin: 15px;
+  width: 90%;
+}
+
+.footer-content{
+  margin: 0 auto;
+  text-align: center;
+}

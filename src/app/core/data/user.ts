@@ -1,0 +1,20 @@
+export interface User {
+  id: string,
+  firstName: string,
+  lastName: string,
+  userName: string,
+  password: string,
+  confirmPassword: string,
+  gender: string,
+  userNotificationType: string,
+  emailId: string,
+  mobileNo: string,
+  addressLine1: string,
+  addressLine2: string,
+  country: string,
+  state: string,
+  city: string,
+  zipCode: number,
+  userType: string,
+  userStatus: string
+}

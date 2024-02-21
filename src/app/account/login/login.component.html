@@ -1,0 +1,29 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+  <mat-card fxFlex="30">
+    <mat-toolbar color="primary">Login</mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="loginForm" (ngSubmit)="onLogin()" class="p-4">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" formControlName="userName" autocomplete="off">
+        @if(isSubmitted && f['userName'].errors){
+          <mat-error *ngIf="f['userName'].errors['required']">Please enter username.</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password" autocomplete="off">
+        <button type="button" mat-icon-button matSuffix (click)="hide=!hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        @if(isSubmitted && f['password'].errors){
+          <mat-error *ngIf="f['password'].errors['required']">Please enter password.</mat-error>
+        }
+      </mat-form-field>
+      <re-captcha id="recaptcha" name="recaptcha" formControlName="recaptcha"></re-captcha>
+      @if(isSubmitted && f['recaptcha'].errors){
+        <mat-error *ngIf="f['recaptcha'].errors['required']">Captcha verification is required.</mat-error>
+      }
+      <button mat-raised-button type="submit" color="primary" class="mt-5">Login</button>
+    </form>
+  </mat-card>
+</div>
