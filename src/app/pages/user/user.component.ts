@@ -30,6 +30,7 @@ export class UserComponent {
   displayColumns: string[] = ["id", "name", "emailId", "mobileNo", "address", "country", "state", "city", "zipCode", "userStatus", "action"];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  readonly LABEL: typeof Label = Label;
 
   ngOnInit() {
     this.getAllUsers();

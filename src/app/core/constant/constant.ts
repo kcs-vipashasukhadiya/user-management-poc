@@ -1,6 +1,8 @@
 export class Label {
   static readonly EDIT_USER_TITLE = 'Edit User';
   static readonly ADD_USER_TITLE = 'Add User';
+  static readonly ID = 'Id';
+  static readonly NAME = 'Name';
   static readonly FIRST_NAME = 'First Name';
   static readonly LAST_NAME = 'Last Name';
   static readonly GENDER = 'Gender';
@@ -10,6 +12,7 @@ export class Label {
   static readonly USER_NOTIFICATION_TYPE = 'User Notification Type';
   static readonly EMAIL_ID = 'Email Id';
   static readonly MOBILE_NO = 'Mobile No.';
+  static readonly ADDRESS = 'Address';
   static readonly ADDRESS_LINE1 = 'Address Line 1';
   static readonly ADDRESS_LINE2 = 'Address Line 2';
   static readonly COUNTRY = 'Country';
@@ -17,7 +20,10 @@ export class Label {
   static readonly CITY = 'City';
   static readonly ZIP_CODE = 'Zip Code';
   static readonly USER_STATUS = 'User Status';
+  static readonly ACTION = 'Action';
   static readonly CAPTCHA = 'Captcha';
+  static readonly SEARCH = 'Search';
+  static readonly PAGE_SIZE_OPTION: Array<number> = [5,10,20,50,100];
 }
 
 export class Message {
