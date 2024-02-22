@@ -16,10 +16,10 @@
       <input matInput (keyup)="filterData($event)" placeholder="Ex. ium" #input>
     </mat-form-field>
     <section class="table-container mat-elevation-z8">
-      <table matSort mat-table [dataSource]="dataSource" aria-describedby="">
+      <table matSort matSortDisableClear mat-table [dataSource]="dataSource" aria-describedby="">
         @for (column of columns; track column) {
           <ng-container [matColumnDef]="column.columnDef">
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
               {{column.header}}
             </th>
             @if(column.header === LABEL.ACTION){

@@ -31,27 +31,27 @@ export class UserComponent {
   readonly LABEL: typeof Label = Label;
   columns = [
     {
-      columnDef: Label.ID,
+      columnDef: 'id',
       header: Label.ID,
       cell: (element: User) => `${element.id}`,
     },
     {
-      columnDef: Label.NAME,
+      columnDef: 'firstName',
       header: Label.NAME,
       cell: (element: User) => `${element.firstName} ${element.lastName}`,
     },
     {
-      columnDef: Label.USER_NOTIFICATION_TYPE,
+      columnDef: 'userNotificationType',
       header: Label.USER_NOTIFICATION_TYPE,
       cell: (element: User) => `${element.userNotificationType}`,
     },
     {
-      columnDef: Label.ADDRESS,
+      columnDef: 'addressLine1',
       header: Label.ADDRESS,
       cell: (element: User) => `${element.addressLine1}, ${element.addressLine2}`,
     },
     {
-      columnDef: Label.USER_STATUS,
+      columnDef: 'userStatus',
       header: Label.USER_STATUS,
       cell: (element: User) => `${element.userStatus}`,
     },

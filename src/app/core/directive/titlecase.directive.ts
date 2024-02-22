@@ -1,4 +1,5 @@
-import { Directive, ElementRef, HostListener, inject } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, inject } from '@angular/core';
+import { FormControl, NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[titleCase]',
@@ -7,11 +8,10 @@ import { Directive, ElementRef, HostListener, inject } from '@angular/core';
 export class TitleCaseDirective {
   el: ElementRef = inject(ElementRef);
 
-  @HostListener('blur') onBlur() {
-    if (this.el.nativeElement.value) {
-      const arr: string[] = this.el.nativeElement.value.split('');
-      arr[0] = arr[0].toUpperCase();
-      this.el.nativeElement.value = arr.join('');
+  @HostListener('input',['$event']) onInput(event: any) {
+    if (event.target.value.length == 1) {
+      const currValue = event.target.value;
+      this.el.nativeElement.value = currValue.charAt(0).toUpperCase() + currValue.slice(1);
     }
   }
 }

@@ -4,7 +4,7 @@
     <div class="row">
       <mat-form-field class="col-md-4">
         <mat-label>{{LABEL.FIRST_NAME}}</mat-label>
-        <input matInput titleCase formControlName="firstName">
+        <input matInput titleCase name="firstName" formControlName="firstName">
         @if(isSubmitted && f['firstName'].errors){
           <mat-error *ngIf="f['firstName'].errors['required']">{{LABEL.FIRST_NAME}} {{VALIDATION.REQUIRED}}</mat-error>
           <mat-error *ngIf="f['firstName'].errors['minlength']">{{LABEL.FIRST_NAME}} {{VALIDATION.MIN_LENGTH_2}}</mat-error>
@@ -14,7 +14,7 @@
       </mat-form-field>
       <mat-form-field class="col-md-4">
         <mat-label>{{LABEL.LAST_NAME}}</mat-label>
-        <input matInput titleCase formControlName="lastName">
+        <input matInput titleCase name="lastName" formControlName="lastName">
         @if(isSubmitted && f['lastName'].errors){
           <mat-error *ngIf="f['lastName'].errors['required']">{{LABEL.LAST_NAME}} {{VALIDATION.REQUIRED}}</mat-error>
           <mat-error *ngIf="f['lastName'].errors['minlength']">{{LABEL.LAST_NAME}} {{VALIDATION.MIN_LENGTH_2}}</mat-error>
