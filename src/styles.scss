@@ -4,7 +4,9 @@
 /*ngx-toaster*/
 @import "ngx-toastr/toastr";
 
-html, body, app-root {
+html,
+body,
+app-root {
   height: 100%;
 }
 
@@ -26,15 +28,14 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  width: 200px;
-  background-color: #eee;
+  width: 200px !important;
 }
 
 .adduser-container mat-form-field + mat-form-field {
   padding-left: 8px;
 }
 
-.adduser-container .usertype-matfield{
+.adduser-container .usertype-matfield {
   background-color: #4a4a4a;
   height: fit-content;
   width: 30.5%;
@@ -48,7 +49,21 @@ mat-sidenav {
   width: 90%;
 }
 
-.footer-content{
+.footer-content {
   margin: 0 auto;
   text-align: center;
+}
+
+table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.table-container {
+  height: 350px;
+  overflow: auto;
+}
+
+.mat-mdc-form-field.table-search{
+  width: 100%;
 }

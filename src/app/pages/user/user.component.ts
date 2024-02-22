@@ -26,11 +26,43 @@ export class UserComponent {
   dialog: MatDialog = inject(MatDialog);
   destroy$ = onDestroy();
   users: User[];
-  dataSource: any;
-  displayColumns: string[] = ["id", "name", "emailId", "mobileNo", "address", "country", "state", "city", "zipCode", "userStatus", "action"];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   readonly LABEL: typeof Label = Label;
+  columns = [
+    {
+      columnDef: Label.ID,
+      header: Label.ID,
+      cell: (element: User) => `${element.id}`,
+    },
+    {
+      columnDef: Label.NAME,
+      header: Label.NAME,
+      cell: (element: User) => `${element.firstName} ${element.lastName}`,
+    },
+    {
+      columnDef: Label.USER_NOTIFICATION_TYPE,
+      header: Label.USER_NOTIFICATION_TYPE,
+      cell: (element: User) => `${element.userNotificationType}`,
+    },
+    {
+      columnDef: Label.ADDRESS,
+      header: Label.ADDRESS,
+      cell: (element: User) => `${element.addressLine1}, ${element.addressLine2}`,
+    },
+    {
+      columnDef: Label.USER_STATUS,
+      header: Label.USER_STATUS,
+      cell: (element: User) => `${element.userStatus}`,
+    },
+    {
+      columnDef: Label.ACTION,
+      header: Label.ACTION,
+      cell: (element: User) => '',
+    },
+  ];
+  dataSource: any;
+  displayColumns: string[] = this.columns.map(c => c.columnDef);
 
   ngOnInit() {
     this.getAllUsers();
