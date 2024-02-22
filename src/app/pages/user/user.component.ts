@@ -26,6 +26,7 @@ export class UserComponent {
   dialog: MatDialog = inject(MatDialog);
   destroy$ = onDestroy();
   users: User[];
+  userStatusArr: Array<string> = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   readonly LABEL: typeof Label = Label;
@@ -65,6 +66,7 @@ export class UserComponent {
   displayColumns: string[] = this.columns.map(c => c.columnDef);
 
   ngOnInit() {
+    this.userStatusArr = Object.keys(USER_STATUS).filter((f) => isNaN(Number(f)));
     this.getAllUsers();
     this.userService.refreshRequired.subscribe(a => this.getAllUsers());
   }
@@ -77,13 +79,28 @@ export class UserComponent {
         this.dataSource = new MatTableDataSource<User>(this.users.filter(a => a.userType === USER_TYPE.EndUser));
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-    });
+      });
   }
 
   filterData(data: Event) {
     const filterValue = (data.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  onStatusChanged(event: any) {
+    debugger;
+    if (event.value) {
+      this.dataSource = new MatTableDataSource<User>(this.users.filter(a => a.userType === USER_TYPE.EndUser && a.userStatus === event.value));
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }
+    else {
+      this.dataSource = new MatTableDataSource<User>(this.users.filter(a => a.userType === USER_TYPE.EndUser));
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    }
+  }
+
   openPopup() {
     this.dialog.open(AddUserComponent, {
       width: '60%',

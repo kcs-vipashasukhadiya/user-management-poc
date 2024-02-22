@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { MatSortModule } from '@angular/material/sort';
     CommonModule
   ],
   exports: [CommonModule, FlexLayoutModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatRadioModule,
-            MatSelectModule, MatDialogModule, MatIconModule, MatSidenavModule, MatMenuModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule]
+    MatSelectModule, MatDialogModule, MatIconModule, MatSidenavModule, MatMenuModule, MatListModule, MatTableModule, MatPaginatorModule,
+    MatSortModule, MatTooltipModule]
 })
 export class MaterialModule { }
