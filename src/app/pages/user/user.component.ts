@@ -88,7 +88,6 @@ export class UserComponent {
   }
 
   onStatusChanged(event: any) {
-    debugger;
     if (event.value) {
       this.dataSource = new MatTableDataSource<User>(this.users.filter(a => a.userType === USER_TYPE.EndUser && a.userStatus === event.value));
       this.dataSource.paginator = this.paginator;
