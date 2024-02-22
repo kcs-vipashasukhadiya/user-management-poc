@@ -17,8 +17,8 @@
     </mat-form-field>
     <mat-form-field class="table-filter">
       <mat-label>Filter By User Status</mat-label>
-      <mat-select formControlName="gender" (selectionChange)="onStatusChanged($event)">
-        <mat-option [value]="">All</mat-option>
+      <mat-select [(value)]="selectedStatus" (selectionChange)="onStatusChanged()">
+        <mat-option value="">All</mat-option>
         @for (status of userStatusArr; track status) {
           <mat-option [value]="status">{{status}}</mat-option>
         }

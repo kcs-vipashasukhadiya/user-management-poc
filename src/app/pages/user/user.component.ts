@@ -27,6 +27,7 @@ export class UserComponent {
   destroy$ = onDestroy();
   users: User[];
   userStatusArr: Array<string> = [];
+  selectedStatus: string = '';
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   readonly LABEL: typeof Label = Label;
@@ -87,9 +88,9 @@ export class UserComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  onStatusChanged(event: any) {
-    if (event.value) {
-      this.dataSource = new MatTableDataSource<User>(this.users.filter(a => a.userType === USER_TYPE.EndUser && a.userStatus === event.value));
+  onStatusChanged() {
+    if (this.selectedStatus) {
+      this.dataSource = new MatTableDataSource<User>(this.users.filter(a => a.userType === USER_TYPE.EndUser && a.userStatus === this.selectedStatus));
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     }
@@ -131,7 +132,6 @@ export class UserComponent {
     });
   }
 }
-
 
 @Component({
   selector: 'confirm-dialog',
