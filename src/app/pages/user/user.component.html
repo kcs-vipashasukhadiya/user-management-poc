@@ -35,12 +35,9 @@
               <td mat-cell *matCellDef="let ele">
                 <div fxLayout="fill">
                   <button mat-icon-button matTooltip="For Edit User" color="primary" (click)="onEditUser(ele.id)"><mat-icon>edit</mat-icon></button>
-                  @if(ele.userStatus === 'Active') {
-                    <button mat-icon-button matTooltip="For User Deactivation" color="warn" (click)="openDialog(ele.id)"><mat-icon>toggle_on</mat-icon></button>
-                  }
-                  @else{
-                    <button mat-icon-button matTooltip="For User Activation" color="accent" (click)="openDialog(ele.id)"><mat-icon>toggle_off</mat-icon></button>
-                  }
+                  <button mat-icon-button matTooltip="For User Deactivation" [color]="ele.userStatus === 'Active' ? 'warn' : 'accent'" (click)="openDialog(ele.id)">
+                    <mat-icon>{{ele.userStatus === 'Active' ? 'toggle_on' : 'toggle_off'}}</mat-icon>
+                  </button>
                 </div>
               </td>
             }

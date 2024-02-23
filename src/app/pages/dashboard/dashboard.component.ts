@@ -12,7 +12,7 @@ import { MaterialModule } from '../../material.module';
 })
 export class DashboardComponent {
   authService: AuthService = inject(AuthService);
-  opened: boolean = false;
+  opened: boolean = true;
 
   onLogout() {
     this.authService.logout();
