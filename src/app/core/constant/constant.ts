@@ -1,53 +1,53 @@
-export class Label {
-  static readonly EDIT_USER_TITLE = 'Edit User';
-  static readonly ADD_USER_TITLE = 'Add User';
-  static readonly ID = 'Id';
-  static readonly NAME = 'Name';
-  static readonly FIRST_NAME = 'First Name';
-  static readonly LAST_NAME = 'Last Name';
-  static readonly GENDER = 'Gender';
-  static readonly USER_NAME = 'User Name';
-  static readonly PASSWORD = 'Password';
-  static readonly CONFIRM_PASSWORD = 'Confirm Password';
-  static readonly USER_NOTIFICATION_TYPE = 'User Notification Type';
-  static readonly EMAIL_ID = 'Email Id';
-  static readonly MOBILE_NO = 'Mobile No.';
-  static readonly ADDRESS = 'Address';
-  static readonly ADDRESS_LINE1 = 'Address Line 1';
-  static readonly ADDRESS_LINE2 = 'Address Line 2';
-  static readonly COUNTRY = 'Country';
-  static readonly STATE = 'State';
-  static readonly CITY = 'City';
-  static readonly ZIP_CODE = 'Zip Code';
-  static readonly USER_STATUS = 'User Status';
-  static readonly ACTION = 'Action';
-  static readonly CAPTCHA = 'Captcha';
-  static readonly SEARCH = 'Search';
-  static readonly PAGE_SIZE_OPTION: Array<number> = [5,10,20,50,100];
+export const Label = {
+  EDIT_USER_TITLE : 'Edit User',
+  ADD_USER_TITLE : 'Add User',
+  ID : 'Id',
+  NAME : 'Name',
+  FIRST_NAME : 'First Name',
+  LAST_NAME : 'Last Name',
+  GENDER : 'Gender',
+  USER_NAME : 'User Name',
+  PASSWORD : 'Password',
+  CONFIRM_PASSWORD : 'Confirm Password',
+  USER_NOTIFICATION_TYPE : 'User Notification Type',
+  EMAIL_ID : 'Email Id',
+  MOBILE_NO : 'Mobile No.',
+  ADDRESS : 'Address',
+  ADDRESS_LINE1 : 'Address Line 1',
+  ADDRESS_LINE2 : 'Address Line 2',
+  COUNTRY : 'Country',
+  STATE : 'State',
+  CITY : 'City',
+  ZIP_CODE : 'Zip Code',
+  USER_STATUS : 'User Status',
+  ACTION : 'Action',
+  CAPTCHA : 'Captcha',
+  SEARCH : 'Search',
+  PAGE_SIZE_OPTION : [5,10,20,50,100]
 }
 
-export class Message {
-  static readonly ONLY_ADMIN_CAN_LOGIN = 'Only Admin can login';
-  static readonly INVALID_CREDENTIALS = 'Invalid Credentials';
-  static readonly SUBMIT_MSG: string = 'User submitted successfully';
-  static readonly SUBMIT_ERROR_MSG: string = 'User submission failed';
-  static readonly STATUS_CHANGED_MSG: string = 'User status changed successfully';
-  static readonly STATUS_CHANGED_ERROR_MSG: string = 'Failed to change user status';
+export const Message = {
+  ONLY_ADMIN_CAN_LOGIN : 'Only Admin can login',
+  INVALID_CREDENTIALS : 'Invalid Credentials',
+  SUBMIT_MSG : 'User submitted successfully',
+  SUBMIT_ERROR_MSG: 'User submission failed',
+  STATUS_CHANGED_MSG: 'User status changed successfully',
+  STATUS_CHANGED_ERROR_MSG: 'Failed to change user status',
 }
 
-export class Validation{
-  static readonly REQUIRED: string = 'required';
-  static readonly MIN_LENGTH_2: string = 'must be at least 2 characters';
-  static readonly MIN_LENGTH_6: string = 'must be at least 6 characters';
-  static readonly MIN_LENGTH_8: string = 'must be at least 8 characters';
-  static readonly MAX_LENGTH_20: string = 'must not exceed 20 characters';
-  static readonly FIX_LENGTH_6: string = 'should have 6 digits only';
-  static readonly FIX_LENGTH_10: string = 'should have 10 digits only';
-  static readonly ALLOWED_ONLY_NUMBERS: string = 'allowed only numbers';
-  static readonly NOT_ALLOWED_NUMBERS: string = 'should not allowed numbers';
-  static readonly NOT_ALLOWED_SPACE: string = 'should not allowed space';
-  static readonly ALREADY_EXISTS: string = 'already exists';
-  static readonly VALID_PASSWORD: string = 'must have at least one number, one lowercase, one uppercase and one special character';
-  static readonly PASSWORD_MISMATCH: string = 'did not match with password';
-  static readonly INVALID: string = 'not valid';
+export const Validation = {
+  REQUIRED: 'required',
+  MIN_LENGTH_2: 'must be at least 2 characters',
+  MIN_LENGTH_6: 'must be at least 6 characters',
+  MIN_LENGTH_8: 'must be at least 8 characters',
+  MAX_LENGTH_20: 'must not exceed 20 characters',
+  FIX_LENGTH_6: 'should have 6 digits only',
+  FIX_LENGTH_10: 'should have 10 digits only',
+  ALLOWED_ONLY_NUMBERS: 'allowed only numbers',
+  NOT_ALLOWED_NUMBERS: 'should not allowed numbers',
+  NOT_ALLOWED_SPACE: 'should not allowed space',
+  ALREADY_EXISTS: 'already exists',
+  VALID_PASSWORD: 'must have at least one number, one lowercase, one uppercase and one special character',
+  PASSWORD_MISMATCH: 'did not match with password',
+  INVALID: 'not valid',
 }
